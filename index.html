@@ -1,0 +1,1445 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@subhankhan13 
+/
+bunny.deep
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+bunny.deep/index.html
+ scroll animation fix and another miner fixes
+Latest commit be24633 on Feb 24
+ History
+ 1 contributor
+1408 lines (758 sloc)  33.9 KB
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subhan khan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.1.0/gl-matrix.js'></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+    <style>
+      .maps1{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps2{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps3{
+        opacity: 0;
+    transform: translateX(-200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps4{
+        opacity: 0;
+    transform: translateX(-200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps5{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps6{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps7{
+        opacity: 0;
+    transform: translateX(-200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps8{
+        opacity: 0;
+    transform: translateX(-200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps9{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+      .maps10{
+        opacity: 0;
+    transform: translateX(200px) translateY(200px) scale(.3);
+    transition: 0.4s;
+      }
+
+     .intro{
+        opacity: 0;
+           transition: all .3s;
+        transform: scale(0.1);
+     }
+
+     .in-tex{
+           opacity: 0;
+           transition: all .3s;
+        transform: scale(0.1);
+       }
+       .heade2-text{
+        opacity: 0;
+           transition: all .3s;
+        transform: scale(0.1);
+        }
+        .heade3-text{
+        opacity: 0;
+           transition: all .3s;
+        transform: scale(0.1);
+        }
+        .faqs1{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+
+        .faqs2{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+        .faqs3{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+        .faqs4{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+        .faqs5{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+        .faqs6{
+            opacity: 0;
+            transform: scale(.6) translateY(130px);
+        }
+
+       .heading8{
+           opacity: 0;
+           transition: all .3s;
+        transform: scale(0.1);
+       }
+
+
+
+        .active{
+           transition:all .4s ;
+            opacity: 1;
+            transform:  translateX(0) translateZ(0) scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="all-about">
+        <canvas id="canvas">
+
+
+        </canvas>
+
+
+        <div class="z1">
+
+            <div class="nav">
+                <div class=" link-logo">
+                    <img class="logo" src="alien-svgrepo-com 1.svg">
+                </div>
+                <div class="all-links">
+                    <ul class="items">
+                        <li class="links">
+                            <ion-icon class="links" name="logo-discord"></ion-icon>
+                        </li>
+                        <li class="links">
+                            <ion-icon class="links" name="logo-instagram"></ion-icon>
+                        </li>
+
+                        <li class="links">
+                            <ion-icon class="links" name="logo-twitter"></ion-icon>
+                        </li>
+                    </ul>
+                    <button class="btn">Buy on OpenSea</button>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="content">
+                <div class="left">
+                    <h1 class="heading"><span class="anime1">A</span>LEAN </h1>
+                    <div class="heading-btn">
+                        <h1 class="heading"><span class="anime2"> S</span>ECRET </h1>
+                        <button class="btn1"> MUSIC</button>
+                    </div>
+                    <h1 class="heading"><span class="anime3"> S</span>OCIETY</h1>
+                    <div class="iner">
+                        <img class="deco1" src="Group 2.svg">
+                        <img class="deco" src="Group 1.svg">
+                        <p class="para">A$$ is the future of networking, business, investing and entertainment.</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="wrapper">
+                        <div class="img-area">
+                            <div class="single-img img-one">
+                                <img src="bunny.jpg" alt="">
+                            </div>
+                            <div class="single-img img-two">
+                                <img src="bunny1.jpg" alt="">
+                            </div>
+                            <div class="single-img img-three">
+                                <img src="bunny2.jpg" alt="">
+                            </div>
+                            <div class="single-img img-four">
+                                <img src="bunny3.jpg" alt="">
+                            </div>
+                            <div class="single-img img-five">
+                                <img src="bunny4.png" alt="">
+                            </div>
+                            <div class="single-img img-six">
+                                <img src="goku.jpeg" alt="">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="but">
+                <button class="btn2">BUY ON OPESEA </button>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="nav2">
+        <div class="fip">
+            <button class="btn4"><sup>01 </sup>THE A$$</button>
+        </div>
+        <div class="fip">
+            <button class="btn4"><sup>02 </sup>THE LORE</button>
+        </div>
+        <div class="fip">
+            <button class="btn4"><sup>03 </sup>PRIVELEGES</button>
+        </div>
+        <div class="fip">
+            <button class="btn4"><sup>04 </sup>ROADMAP</button>
+        </div>
+        <div class="fip">
+            <button class="btn4"><sup>05 </sup>THE MINT </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 
+    <div class="text-in">
+        <div class="text-inner">
+            <h1 class="text-heading"><span class="anime1">A</span><span class="anime1">S</span><span class="anime2">S</span>  IS <br>THE FUTURE</h1>
+            <div class="text-img">
+                <img class="hoj" src="glass.png">
+               <h1 class="text-inner2"> OF  <span class="white">INVESTMENT</span> </h1>
+            </div>
+        </div>
+    </div>
+ -->
+
+
+
+
+    <div class="kam">
+        <div class="im">
+            <div class="tex">
+                <h1 class="head3">WHAT IS</h1>
+                <h1 class="head4">BORED BUNNY?</h1>
+            </div>
+            <img class="bun" src="roun.png">
+
+        </div>
+        <div class="cont">
+            <div class="con1">
+
+                <h1 class="head1">WHAT IS</h1>
+                <h1 class="head2">BORED BUNNY?</h1>
+                <div class="di1">
+                    <p class="para1">Bored Bunny is a collection of 4,999 unique 3D well-designed Bunnies united
+                        together to get on the Ethereum Blockchain</p>
+                    <p class="para2">Each Bored Bunny is unique and exclusive based on a hundred traits.
+                        The objective is to build the strongest community and project around NFTs.</p>
+                </div>
+
+                <p class="para3"> Entering into the Bored Bunny Community means joining a family full of investors and
+                    nft enthusiasts who
+                    believe in the future of Cryptocurrencies and the blockchain technology.</p>
+                <button class="btn5">
+                    <ion-icon class="dis" name="logo-discord"></ion-icon>JOIN OUR DISCORD
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="cons">
+        <div class="bunny-img">
+            <div class="borad">
+                <img class="bunnys hove1" src="bunny4.png">
+                <img class="hide" src="left.png">
+
+            </div>
+
+            <div class="borad">
+                <img class="bunnys hove1" src="beam.png">
+                <img class="hide" src="bun.png">
+
+            </div>
+
+            <div class="borad">
+                <img class="bunnys hove3" src="left.png">
+                <img class="bunnys hove2" src="bunny4.png">
+
+            </div>
+
+            <div class="borad">
+                <img class="bunnys hove1" src="bun.png">
+                <img class="bunnys hide" src="beam.png">
+
+            </div>
+            <h1 class="head7">BORED BUNNY</h1>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contain">
+
+        <div class="lefter">
+            <p class="paragraph">This is no ordinary project! The Alien $ecret $ociety is a life-changing NFT
+                collection. To
+                increase value and add extra glitter to the utility, some Aliens are rarer than others. If you are
+                fortunate enough to mint one, here is what is coming your way.</p>
+        </div>
+        <div class="righter">
+            <h1 class="heading6"> <b class="fiuy">THE</b> <br>
+                <b class="boll"> PRIVILEGES</b>
+            </h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="cards">
+
+        <div class="inner-cards">
+            <div class="cardss cardss1  lefti">
+                <div class="wiy">
+                    <h1 class="num">01</h1>
+                    <div class="footer-card">
+                        <h1 class="name">networking</h1>
+                        <p class="par">Once you're in the Club, you can connect with everyone. Networking events will be
+                            organised in every major city, and we’ll do everything to help you find the right person!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardss cardss2 shim lefti">
+                <div class="wiy">
+                    <h1 class="num">02</h1>
+                    <div class="footer-card">
+                        <h1 class="name">TAINMENT</h1>
+                        <p class="par">The NBA Finals, you’ll experience the best show this world has to offer.
+                            organised in every major city, and we’ll do everything to help you find the right person!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardss cardss3 shim rim">
+                <div class="wiy">
+                    <h1 class="num">03</h1>
+                    <div class="footer-card">
+                        <h1 class="name">investment</h1>
+                        <p class="par">As part of the A$$, you’ll get early access opportunities to invest in the crypto
+                            industry. We will host conferences featuring the best projects and give you the chance to
+                            invest. You can also participate to the A$$ Investment Round and we just might finance your
+                            project.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardss cardss4 shimr rim">
+                <div class="wiy">
+                    <h1 class="num">04</h1>
+                    <div class="footer-card">
+                        <h1 class="name">LUXURY CONCIERGE</h1>
+                        <p class="par">Do you want something in particular? We will do our best to help you obtain what
+                            you desire. Tickets for football games, luxury watches, private parties, etc. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardss cardss5 shimr lopp sham">
+                <div class="wiy">
+                    <h1 class="num">05</h1>
+                    <div class="footer-card">
+                        <h1 class="name">Aliencon</h1>
+                        <p class="par">Every Alien holder get access to AlienCON, a global gathering of A-List artists,
+                            CEOs and Entrepreneurs on the planet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1 class="heading8"><b class="fiuy">THE</b> ROADMAP</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contain-top">
+        <div class="container-left-in  gip">
+
+        </div>
+        
+        <div class="container-mid-in loip maps1">
+            <div class="num-style">
+                <h1 class="num-still">01</h1>
+                <div class="line-in">
+                    <div class="line-style"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-right-in loip  maps2">
+            <h1 class="text-head">WELCOME TO <br>
+                THE LORD SOCIETY</h1>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. achievement of our goals, we are to organize a party for </p>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. We will release our first merch collection of Bored Bunny that will be available only for
+                the holder. achievement of our goals, we are to organize a party for </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="contain-top ui">
+        <div class="container-left-in job maps3">
+            <h1 class="text-head1 text-head">WELCOME TO <br>
+                THE LORD SOCIETY</h1>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. achievement of our goals, we are to organize a party for </p>
+
+        </div>
+        <div class="container-mid-in job maps4">
+            <div class="num-style">
+                <h1 class="num-still">02</h1>
+                <div class="line-in">
+                    <div class="line-style"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-right-in jim">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contain-top">
+        <div class="container-left-in gip ">
+
+        </div>
+        <div class="container-mid-in loip maps5">
+            <div class="num-style">
+                <h1 class="num-still">03</h1>
+                <div class="line-in">
+                    <div class="line-style"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-right-in loip maps6">
+            <h1 class="text-head1  text-head">BREED <br>
+                YOUR LORD</h1>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. achievement of our goals, we are to organize a party for achievement of our goals, we are to
+                organize a party for </p>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contain-top ui">
+        <div class="container-left-in job maps7">
+            <h1 class="text-head1  text-head">CASINO<br>
+                DEVELOPMENT</h1>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. achievement of our goals, we are to organize a party for We will release our first merch
+                collection of Bored Bunny that will be available only for
+                the holder. achievement of our goals, we are to organize a party for </p>
+            </p>
+
+        </div>
+        <div class="container-mid-in job maps8">
+            <div class="num-style">
+                <h1 class="num-still">04</h1>
+                <div class="line-in">
+                    <div class="line-style"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-right-in jim">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="contain-top">
+        <div class="container-left-in gip ">
+
+        </div>
+        <div class="container-mid-in  loip maps9">
+            <div class="num-style">
+                <h1 class="num-still">05</h1>
+                <div class="line-in">
+                    <div class="line-style"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-right-in loip maps10">
+            <h1 class="text-head1  text-head">CASINO <br>
+                REWARDS</h1>
+            <p class="content-detail">We will release our first merch collection of Bored Bunny that will be available
+                only for
+                the holder. achievement of our goals, we are to organize a party for achievement of our goals, we are to
+                organize a party for </p>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="text-coummunty">
+        <h1 class="intro ink"> <b class="vir">JOIN THE</b> COMMUNITY NOW</h1>
+
+        <p class="in-tex ink">To us, the community comes community comes first. The main goal is to make sure your
+            investment and our mint are as successful as possible, to achieve all of our goals.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="full">
+        <div class="full-left">
+
+            <div class="tip">
+                <h1 class="text-ui">Together, let’s build the best exclusive club never seen before. Show to the world
+                    how
+                    strong and influent we are. Let’s take over the Metaverse.</h1>
+                <div class="all-btn1">
+
+                    <button class="btn5 btn7">
+                        <ion-icon class="dis md hydrated jamil " name="logo-discord" role="img" aria-label="logo discord">
+                        </ion-icon>
+                        JOIN DISCORD
+                    </button>
+                    <button class="btn9">
+                        <ion-icon class="dis md mdd hydrated jamil" name="logo-twitter"></ion-icon>FOLLOW US
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="full-right">
+            <img class="cristal" src="cris.png">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="heade1">
+        <h1 class="heade2-text init"><b class="fiuy">MEET</b> THE TEAM</h1>
+        <p class="heade3-text init">The ones who are making everything happen.</p>
+    </div>
+
+
+
+
+
+
+
+    <div class="over">
+        <div class="fle">
+
+
+            <div class="player-name">
+                <img class="tog" src="beam.png">
+                <h1 class="nmea">Kent</h1>
+                <p class="noob">BLOCKCHAIN EXPERT</p>
+            </div>
+
+
+            <img class="tog" src="bun.png">
+            <img class="tog" src="bunny.jpg">
+            <img class="tog" src="bunny1.jpg">
+            <img class="tog" src="bunny2.jpg">
+            <img class="tog" src="bunny3.jpg">
+
+
+
+
+
+
+
+
+
+
+
+            <img class="tog" src="beam.png">
+            <img class="tog" src="bun.png">
+            <img class="tog" src="bunny.jpg">
+            <img class="tog" src="bunny1.jpg">
+            <img class="tog" src="bunny2.jpg">
+            <img class="tog" src="bunny3.jpg">
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1 class="fa">FAQ</h1>
+
+
+
+
+
+    <div class="faq">
+        <div class="faq-in ">
+            <div class="faq-question faqs1">
+                <div class="open">
+                    <h1 class="qes1">WHEN WILL THE OFFICIAL PRIME APE PLANET LAUNCH TAKE PLACE?</h1>
+                    <ion-icon class="plus" onclick="openNav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closeNav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+            <div class="faq-question faqs2">
+                <div class="open">
+                    <h1 class="qes1">HOW MANY PRIME APES ARE TAKING OVER THE DIGITAL JUNGLE?</h1>
+                    <ion-icon class="plus" onclick="openYav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop op">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closeYav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+
+
+            <div class="faq-question faqs3">
+                <div class="open">
+                    <h1 class="qes1">CAN I TAKE A SANEAK PEEK AT MY NFTS?</h1>
+                    <ion-icon class="plus" onclick="openTav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop lov">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closeTav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="faq-question faqs4">
+                <div class="open">
+                    <h1 class="qes1">HOW CAN I JOIN YOU?</h1>
+                    <ion-icon class="plus" onclick="openPav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop po">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closePav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+
+
+
+            <div class="faq-question faqs5">
+                <div class="open">
+                    <h1 class="qes1">WHAT BLOCKCHAIN IS THE PROJECT HOSTED ON?</h1>
+                    <ion-icon class="plus" onclick="openLav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop poo">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closeLav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+
+
+
+            <div class="faq-question faqs6">
+                <div class="open">
+                    <h1 class="qes1">DO PRIME APES HAVE ANY UTILITY?</h1>
+                    <ion-icon class="plus" onclick="openRav()" name="add-outline"></ion-icon>
+                </div>
+                <div class="kop pro">
+                    <p class="close">We are committed to support, invest, reward, and collaborate with the best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd We are committed to support, invest, reward, and collaborate with the
+                        best projects
+                        in
+                        the space and projects ideas of our members. You'll need a total of 2 Bored Bunny to breed your
+                        Bored Bunny, to get a 2nd</p>
+                    <ion-icon class="yop" onclick="closeRav()" name="close-outline"></ion-icon>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="foter">
+        <div class="foter-in">
+            <div class="foter-left">
+                <h1 class="foter-head"><b class="fiuy">JOIN</b> <br>BORED BUNNY </h1>
+                <p class="foter-para">Become a member of the strongest and fast growing
+                    NFTs community.</p>
+                <div class="foter-btn-all">
+                    <button class="foter-btn1">
+                        <ion-icon class="disc" name="logo-discord"></ion-icon>DISCORD
+                    </button>
+                    <button class="foter-btn2">
+                        <ion-icon class="seaa" name="boat-outline"></ion-icon>OPEN SEA
+                    </button>
+                </div>
+            </div>
+            <div class="foter-mid">
+                <img class="foter-mid-img" src="lok.png ">
+            </div>
+            <div class="foter-right">
+                <h1 class="foter-right-head foter-head"><b class="fiuy">MINT</b> <br> 4TH JANUARY</h1>
+               <div class="tempw">
+                <button class="foter-right-btn">
+                    <ion-icon class="eye" name="eyedrop-outline"></ion-icon>BUY ON OPENSEA
+                </button>
+            </div>
+            </div>
+        </div>
+
+
+
+        <div class="last">
+            <div class="last-in">
+                <p class="last-para">© 2021 BORED BUNNY. ALL RIGHTS RESERVED</p>
+            </div>
+            <div class="last-mid">
+                <div class="last-min-icon"><ion-icon name="logo-twitter"></ion-icon></div>
+                <div class="last-min-icon"><ion-icon name="logo-discord"></ion-icon></div>
+                <div class="last-min-icon"><ion-icon name="boat-outline"></ion-icon></div>
+                <div class="last-min-icon"><ion-icon name="logo-instagram"></ion-icon></div>
+        
+        
+        
+            </div>
+            <div class="last-last">
+                <p class="last-last-para"> <b class="last-boll">PRIVACY POLICY</b> <b class="loooop">TERM & CONDITION</b> </p>
+            </div >
+        </div>
+        
+        
+        
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.para1',
+        })
+
+            .setClassToggle('.para1, .con1, .para2', 'showw')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.cons',
+        })
+
+            .setClassToggle('.cons', 'show')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.heading6',
+        })
+
+            .setClassToggle('.heading6', 'sho')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.paragraph',
+        })
+
+            .setClassToggle('.paragraph', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.lefti',
+        })
+
+            .setClassToggle('.lefti', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.rim',
+        })
+
+            .setClassToggle('.rim', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.lopp',
+        })
+
+            .setClassToggle('.lopp', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.loip',
+        })
+
+            .setClassToggle('.loip', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.job',
+        })
+
+            .setClassToggle('.job', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.ink',
+        })
+
+            .setClassToggle('.ink', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.tip',
+        })
+
+            .setClassToggle('.tip', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.init',
+        })
+
+            .setClassToggle('.init', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+    <script>
+        var controller = new ScrollMagic.Controller();
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.smp',
+        })
+
+            .setClassToggle('.smp', 'shoo')
+
+            .addTo(controller);
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js" integrity="sha512-kDuUo39RGApdfHkM1WQL8Pg9BYtYGS5rD14AzePsD4SEaixw7v/ykAkLMdsSjuBCNFE6/FAP+WIHh6N6QZJl5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js" integrity="sha512-hFyYiBIWCYSyo98oFGWjG5V8HEV4g5O2pxu0mzU8qIMC7lrrwtcKWoRDZcpRL0ywIIM2d/XsBJ9iXNLFf6kIgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js" integrity="sha512-7nSmgdAZ7oPdT5aa2a4YauI8Y1xgaj6zZtQo9+EIEhpcNEiRHPAtyTKYckBQ0lmg1xQKrdWweHBcN/D0tdnvCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js" integrity="sha512-pvDW4tehKKsohH97164HwKwRGFpzayEFWTVbk8HuUoLIQ7Jp+WLN5XYokVuoCj2aT6dy8ihbW8SRTG1k0W4mSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js" integrity="sha512-tSIDeirKC6suYILHqqPuZH3s0MvD4a5vCHXhBIcdmq4gQXZ2IB3fEYA5x2f3D2p/CbSqzKEvuTEVbS5VZ2u+ew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js" integrity="sha512-ocsFo48WU8Xq6Y1Lwi7psXRAujG9E4TKNR4q1DbrKzaaxOMTEoao/a+mDoB+cYzY4lwbyxvqjkp/ZA1/MNlfsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/BezierPlugin.min.js" integrity="sha512-plyexAULVlTExvDn2yUZFJV9F8q+53MC/GpU9dEuNGXmrrI3J8Rcffjvxg3OOBALBvF+UILPLIBEoCeF2maqTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ -->
+
+
+
+
+
+
+    <script src="app.js"></script>
+    <script src="app2.js"></script>
+    <script src="faq.js"></script>
+    <script src="scroll.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<div class="yhq">$CREATED BY SUBHAN KHAN$</div>
+</body>
+
+</html>
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
